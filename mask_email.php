@@ -17,10 +17,9 @@
 		}
 		
 		//Logic: show asterisk in middle, but also show the last character before @
-		$mail_parts[0] = substr( $username, 0 , $char_shown )
-			. str_repeat("*", $len - $char_shown - 1 )
-			. substr( $username, $len - $char_shown + 2 , 1  )
-			;
+	    $mail_parts[0] = substr($name, 0, $char_shown) .
+	      str_repeat("*", $len - (2 * $char_shown)) .
+	      substr($name, -$char_shown, $char_shown);
 			
 		return implode("@", $mail_parts );
 	}
